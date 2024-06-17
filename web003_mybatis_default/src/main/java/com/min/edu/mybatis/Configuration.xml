@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+<!--
+	1) alias 영역: mapper에서 사용되는 객체의 별명 선언
+	2) myBatis 기능의 setting 설정
+	3) 접속 정보
+	4) mapper 파일 연결
+ -->
+ <environments default="development">
+ 	<environment id="development">
+ 	<transactionManager type="JDBC"/>
+ 		<dataSource type="POOLED">
+ 			<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+ 			<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+ 			<property name="username" value="EDU"/>
+ 			<property name="password" value="EDU"/>
+ 		</dataSource>
+ 	</environment>
+ </environments>
+
+ <mappers>
+ 	<mapper resource="com/min/edu/sqls/Dept_Mapper.xml"/>
+ </mappers>
+
+</configuration>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- TODO 007 Mapper 필수 값은 namespace 
+	 namespace란? mapper파일을 유일하게 구분짓는 이름이 된다.
+	 			 Dao(Respository)의 위치와 클래스명으로 사용하게된다.
+-->
+<mapper namespace="edu.deptselect">
+<!-- select tag는 resultType, parameterType(3.x 생략 가능) -->
+<!-- 
+	 resultType: 객체(Object STO)- 반드시 setter 메소드
+	 parameterType: 반드시 getter 메소드
+-->
+	<select id="getAllDept" resultType="com.min.edu.dto.Dept_Dto">
+	SELECT DEPTNO , DNAME, LOC 
+  	FROM DEPT d 
+  	</select>
+</mapper>
+

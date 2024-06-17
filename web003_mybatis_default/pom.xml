@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.min.edu</groupId>
+	<artifactId>web003_mybatis_default</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>web003_mybatis_default Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+
+	<!--TODO 001 사용되는 값을 변수로 만들어 EL 사용 -->
+	<properties>
+		<junit-version>4.13.2</junit-version>
+	</properties>
+
+	<!--TODO 002 기본 저장소가 아닌 2차 검색 저장소(repository) -->
+	<repositories>
+		<repository>
+			<id>2th</id>
+			<name>external</name>
+			<url>https://repo1.maven.org/maven2</url><!--이전 기본 repository-->
+			<!--위와 같음 2024 최신 https://repo.maven.apache.org/maven2/-->
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<!--TODO 004 JDBC 연결을 위한 Oracle Driver-->
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc10</artifactId>
+			<version>19.21.0.0</version>
+		</dependency>
+
+		<!--TODO 005 Mybatis 라이브러리-->
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.5.15</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit-version}</version>
+			<!--위의 <properties>에 변수 선언한 것 가져오기-->
+			<!-- 똑같은 버전으로 맞추기 위함-->
+			<scope>test</scope>
+
+			<!--의존관계로 가져오는 라이브러리를 제외하고 가져오기 위함-->
+			<!--버전 충돌 방지를 위해 어떠한 버전 제외시키기!-->
+			<!--<exclusions></exclusions>-->
+
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>web003_mybatis_default</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId> <!--폴더-->
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.10.1</version>
+				<configuration>
+					<source>17</source>
+					<target>17</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.3.2</version>
+			</plugin>
+		</plugins>
+	</build>
+</project>
